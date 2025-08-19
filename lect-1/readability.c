@@ -16,6 +16,7 @@ int L = (letters/words) * 100;
 int S = (sentences/words) * 100;
 
 int cli = 0.0588 * L - 0.296 * S - 15.8;
+we need to handle decimals
 
 if(cli == 16 or higher)
 {
