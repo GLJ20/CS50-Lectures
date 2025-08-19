@@ -12,8 +12,10 @@
 // //ik meow exists and I have all info about it like name, return type, parameters
 // // void meow(void);
 
+//the return type is int but we are not passing any argumnets to the function
+// int get_positive_int(void);
+//second version of the meow function
 // void meow(int n);
-
 // int main(void)
 // {
 //     // int i = 0;
@@ -34,6 +36,9 @@
 //         //compiler checks list of promises and sees meow is on it, so lets this slide
 //         //then compiler generates machine code to tell program when it reaches here
 //         //go to the memeory address of this function but it still doesnt know so it puts placeholder
+//         //this moew alone is the latest version, cause the loop has been removed and added to th emeow function
+//         int times = get_positive_int();
+//         meow(times);
 //         meow(3);
 
 // }
@@ -47,6 +52,15 @@
 //         printf("meow\n");
 //     }
 // }
-
+//int get_positive_int(void)
+//{
+//  int n;
+//  do
+//  {
+//    n = get_int("Number: ");
+//  }    
+//  while(n < 1);
+//  return n;
+//}
 // //somehow computers also make main and meow be these seperate pieces? so like it connects
 // //main with meow?
