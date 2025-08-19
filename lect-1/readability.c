@@ -1,98 +1,95 @@
-first find number of words since numbers of words is needed
-in both average of letters and average num of sentences 
+// #include <cs50.h>
+// #include <ctype.h>
+// #include <math.h>
+// #include <stdio.h>
+// #include <string.h>
 
-ok so how do we find the number of words in a string? 
+// int count_letters(string para);
+// int count_words(string para);
+// int count_sentences(string para);
 
-after we find each word we can use len to finf the number of letters 
-in a single word then sum all of the letters in that string?
+// int main(void)
+// {
+//     string para = get_string("Text: ");
 
-string para;
+//     int letters = count_letters(para);
+//     printf("%d\n", letters);
+//     int words = count_words(para);
+//     printf("%d\n", words);
+//     int sentences = count_sentences(para);
+//     printf("%d\n", sentences);
+//     float L = ((float) letters / words) * 100;
+//     float S = ((float) sentences / words) * 100;
 
-int words = count_words(para);
-int letters = count_letters(para);
-int sentences = count_sentences(para);
+//     int cli = round(0.0588 * L - 0.296 * S - 15.8);
+//     // we need to handle decimals
 
-int L = (letters/words) * 100;
-int S = (sentences/words) * 100;
+//     if (cli == 16 || cli > 16)
+//     {
+//         printf("Grade 16+\n");
+//     }
+//     else if (cli <= 1)
+//     {
+//         printf("Before Grade 1\n");
+//     }
+//     else
+//     {
+//         printf("Grade %d\n", cli);
+//     }
+//     // round up i think?
+// }
 
-int cli = 0.0588 * L - 0.296 * S - 15.8;
-we need to handle decimals
+// int count_letters(string para)
+// {
+//     int len = strlen(para);
+//     int lettercount = 0;
 
-if(cli == 16 or higher)
-{
-  printf("grade 16+");
-} else if(cli <= 1)
-{
-  printf("below grade level 1")
-}
-else
-{
-  printf(Grade: cli)
-}
-//round up i think? 
+//     for (int i = 0; i < len; i++)
+//     {
+//         char singlechar = para[i];
+//         if (isalpha(singlechar))
+//         {
+//             lettercount++;
+//         }
+//     }
 
-count letters is the single character right? ok well
-so maybe we can use isBlank to check and if the character is blank 
-then we dont add it to the count of letters?
-int len = strlen(para)
-int count;
-for(int i = 0; i < len; i++)
-{
-   char singlechar = para[i];
-   if(isalpha(singlechar))
-   {
-	count++;
-   }
-}
-return count
+//     return lettercount;
+// }
 
-for checking sentences, how to deal with a full stop in a word 
-but it is not end of sentence?
+// int count_words(string para)
+// {
+//     int wordcount = 1;
+//     int charCount = 0;
 
-For example here:
-Existing computer programs that measure readability are based largely 
-upon subroutines which estimate number of syllables, usually by counting 
-vowels. The shortcoming in estimating syllables is that it necessitates 
-keypunching the prose into the computer. There is no need to estimate 
-syllables since word length in letters is a better predictor of 
-readability than word length in syllables. Therefore, a new 
-readability formula was computed that has for its predictors 
-letters per 100 words and sentences per 100 words. Both 
-predictors can be counted by an optical scanning device, 
-and thus the formula makes it economically feasible for 
-an organization such as the U.S. Office of Education to 
-calibrate the readability of all textbooks for the public school system.
+//     int len = strlen(para);
 
-Here there is U.S., if i were to use the . as the split, how
-would I deal with full stop being somewhere else
+//     for (int i = 0; i < len; i++)
+//     {
+//         char singlechar = para[i];
+//         // I was checking if it is not blank increment which meant it will increment for each char!
+//         // Another thing i forgot to add was to check for the strings after the space for the last word basically
+//         if (singlechar == ' ' && (singlechar + 1 != ' '))
+//         {
+//             wordcount++;
+//         }
+//     }
 
-count words
-int wordcount = 1;
-int charCount = 0;
+//     return wordcount;
+// }
 
-int len = len(para)
-for(i = 0; i < len; i++)
-{
-   char singlechar = para[i];
-   printf(singlechar);
-   if(!isBlank(singlechar))
-   {
-   	wordcount++;
-   }
-   
-}
-return wordcount;
+// int count_sentences(string para)
+// {
+//     int sentencecount = 0;
+//     int len = strlen(para);
 
-count sentences
+//     for (int i = 0; i < len; i++)
+//     {
+//         char singlechar = para[i];
 
-int len = len(para)
-for(i = 0; i < len; i++)
-{
-   char singlechar = para[i];
-   printf(singlechar);
-   if(!singlechar == '.')
-   {
-   	wordcount++;
-   }
-   
-}
+//         if (singlechar == '.' || singlechar == '!' || singlechar == '?')
+//         {
+//             sentencecount++;
+//         }
+//     }
+//     return sentencecount;
+// }
