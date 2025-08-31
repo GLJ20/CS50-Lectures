@@ -23,7 +23,8 @@ int main(void)
   //print s and &s[0] print the same hexadecimal value. printf goes to the address of s so s is 
   //a pointer essentially? and maybe printf is looping through the chars that make up the string
   //then sends back the "string". and string s basically is the first address of the string
-  //so cs50.h library might have made a new type by writng it like this, typedef char * string
+  //so cs50.h library might have made a new type by writng it like this, 
+  //typedef char *string
   //cause string s is char *s
   //char *s = "HI!";
   //for (int i = 0; i < 3; i++)
