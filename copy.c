@@ -16,12 +16,8 @@ int main(void)
   {
     return 1; //if t has no memory dont even try to do the for loop
   }
-  for (int i = 0, n = strlen(s); i <= n; i++)
-  {
-    //copy each char in s to t so s[0] = h is value of t[0] and so on
-    t[i] = s[i];
-  }
-
+  //a much shorter way to copy, first is the destination then what we want to copy
+  strcopy(t,s);
   //not a good idea to try to capitalize zero, and this zero can come because the user by mistake
   //clicks on enter without writing anything so we need to handle that
   if(strlen(t) > 0)
@@ -39,5 +35,7 @@ int main(void)
   //of s into t? using malloc which is memory allocation
   printf("s: %s\n", s);
   printf("t: %s\n", t);
+  //free memeory after we are done so t does not continue occupying memeory
+  free(t);
 }
 //if something went wrong with malloc it will return null, not nul like \0 no null so 0
